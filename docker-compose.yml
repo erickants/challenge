@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+    rabbitmq:
+        image: rabbitmq:3-management-alpine
+        volumes:
+            - /var/lib/rabbitmq/challenge
+        ports:
+            - 5672:5672
+            - 15672:15672
+        environment:
+            RABBITMQ_DEFAULT_USER: admin
+            RABBITMQ_DEFAULT_PASS: admin
+
+    db:
+        image: mysql:latest
+        volumes:
+            - db_data/var/lib/mysql
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: mudar123
+            MYSQL_DATABASE: challenge_warren
+            MYSQL_USER: challenge
+            MYSQL_PASSWORD: mudar123
+        ports:
+            - 3306:3306
+
+    api:
+        build:
+            dockerfile: ../Dockerfile
+            context: src/back/challenge.api
+        environment:
+            ASPNETCORE_ENVIRONMENT: "production"
+        ports:
+            - 8080:80
+
+    web_app:
+        build:
+            dockerfile: ../Dockerfile
+            context: src/front/challenge-warren
+        ports:
+            - 80:80
+    
+    
+    
