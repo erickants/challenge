@@ -12,6 +12,7 @@ namespace src.back.Challenge.Infra.CrossCutting.Configurations
             => services.AddDbContext<ChallengeContext>(options =>
             {
                 options.UseMySql(configuration.GetSection("Database:ConnectionString").Value);
-            });
+            }, ServiceLifetime.Transient);
+
     }
 }

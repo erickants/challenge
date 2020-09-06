@@ -6,7 +6,7 @@ namespace src.back.Challenge.Infra.Data.Mappings
 {
     public static class InvestmentRulesMapping
     {
-        public static void Map(this EntityTypeBuilder<InvestmentRules> builder)
+        public static void Map(this EntityTypeBuilder<InvestmentRule> builder)
         {
             builder.ToTable("InvestmentRules");
 

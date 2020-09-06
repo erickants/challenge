@@ -9,7 +9,7 @@ namespace src.back.Challenge.Infra.Data.Context
         public DbSet<Customer> Customers { get; set; }
         public DbSet<BankAccount> BankAccounts { get; set; }
         public DbSet<BankAccountStatement> BankAccountStatements { get; set; }
-        public DbSet<InvestmentRules> InvestmentRules { get; set; }
+        public DbSet<InvestmentRule> InvestmentRules { get; set; }
 
         public ChallengeContext(DbContextOptions<ChallengeContext> options) : base(options)
         {
@@ -22,7 +22,7 @@ namespace src.back.Challenge.Infra.Data.Context
             modelBuilder.Entity<Customer>().Map();
             modelBuilder.Entity<BankAccount>().Map();
             modelBuilder.Entity<BankAccountStatement>().Map();
-            modelBuilder.Entity<InvestmentRules>().Map();
+            modelBuilder.Entity<InvestmentRule>().Map();
         }
     }
 }

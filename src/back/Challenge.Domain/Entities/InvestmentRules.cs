@@ -3,7 +3,7 @@ using src.back.Challenge.Domain.Enums;
 
 namespace src.back.Challenge.Domain.Entities
 {
-    public class InvestmentRules : BaseEntity
+    public class InvestmentRule : BaseEntity
     {
         public int Id { get; set; }
         public decimal IncomePercentual { get; set; }

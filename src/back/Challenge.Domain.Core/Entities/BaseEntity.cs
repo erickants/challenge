@@ -9,7 +9,7 @@ namespace src.back.Challenge.Domain.Core.Entities
             CreatedAt = DateTime.Now;
         }
 
-        public DateTime CreatedAt { get; }
+        public DateTime CreatedAt { get; private set;}
         public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
     }

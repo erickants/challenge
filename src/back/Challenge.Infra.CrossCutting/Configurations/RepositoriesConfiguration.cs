@@ -1,6 +1,8 @@
 using Microsoft.Extensions.DependencyInjection;
+using src.back.Challenge.Domain.Core.UoW;
 using src.back.Challenge.Domain.Repositories;
 using src.back.Challenge.Infra.Data.Repositories;
+using src.back.Challenge.Infra.Data.UoW;
 
 namespace src.back.Challenge.Infra.CrossCutting.Configurations
 {
@@ -10,6 +12,7 @@ namespace src.back.Challenge.Infra.CrossCutting.Configurations
             => services.AddScoped<IBankAccountRepository, BankAccountRepository>()
                 .AddScoped<ICustomerRepository, CustomerRepository>()
                 .AddScoped<IBankAccountStatementRepository, BankAccountStatementRepository>()
-                .AddScoped<IInvestmentRulesRepository, IInvestmentRulesRepository>();
+                .AddScoped<IInvestmentRulesRepository, InvestmentRulesRepository>()
+                .AddTransient<IUnitOfWork, UnitOfWork>();
     }
 }

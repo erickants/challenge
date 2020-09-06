@@ -20,6 +20,9 @@ namespace src.back.Challenge.Infra.Data.Mappings
 
             builder.Property(p => p.AccountNumber)
                 .HasMaxLength(50);
+            
+            builder.HasIndex(p => p.AccountNumber)
+                .IsUnique();
 
             builder.Property(p => p.Type)
                 .HasMaxLength(1);

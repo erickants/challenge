@@ -34,6 +34,9 @@ namespace challenge.infra.data.Migrations
                         .HasColumnType("varchar(10) CHARACTER SET utf8mb4")
                         .HasMaxLength(10);
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<long>("CustomerId")
                         .HasColumnType("bigint");
 
@@ -49,6 +52,9 @@ namespace challenge.infra.data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AccountNumber")
+                        .IsUnique();
+
                     b.HasIndex("CustomerId");
 
                     b.ToTable("BankAccount");
@@ -62,6 +68,9 @@ namespace challenge.infra.data.Migrations
 
                     b.Property<decimal>("Amount")
                         .HasColumnType("decimal(14,2)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("datetime(6)");
@@ -102,6 +111,9 @@ namespace challenge.infra.data.Migrations
                         .HasColumnType("varchar(11) CHARACTER SET utf8mb4")
                         .HasMaxLength(11);
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("datetime(6)");
 
@@ -117,7 +129,7 @@ namespace challenge.infra.data.Migrations
                     b.ToTable("Customer");
                 });
 
-            modelBuilder.Entity("src.back.Challenge.Domain.Entities.InvestmentRules", b =>
+            modelBuilder.Entity("src.back.Challenge.Domain.Entities.InvestmentRule", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -126,6 +138,9 @@ namespace challenge.infra.data.Migrations
                     b.Property<int>("BankAccountType")
                         .HasColumnType("int")
                         .HasMaxLength(1);
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("datetime(6)");
